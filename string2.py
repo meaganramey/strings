@@ -24,7 +24,13 @@ __author__ = "Meagan Ramey"
 
 def verbing(s):
     # your code here
-    return
+    if len(s) > 3:
+        if s[-3:] == 'ing':
+            return s + 'ly'
+        else:
+            return s + 'ing'
+    else:
+        return s
 
 
 # E. not_bad
@@ -38,7 +44,16 @@ def verbing(s):
 
 def not_bad(s):
     # your code here
-    return
+    if s.rfind('not') > 0:
+        if s.rfind('not') < s.rfind('bad'):
+            if s[-1] == '!':
+                return s[0:s.rfind('not')] + 'good!'
+            else:
+                return s[0:s.rfind('not')] + 'good'
+        else:
+            return s
+    else:
+        return s
 
 
 # F. front_back
@@ -52,8 +67,21 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    a_half_length = len(a) // 2
+    if len(a) % 2 == 1:
+        a_front = a[0:a_half_length+1]
+        a_back = a[a_half_length+1:]
+    else:
+        a_front = a[0:a_half_length]
+        a_back = a[a_half_length:]
+    b_half_length = len(b) // 2
+    if len(b) % 2 == 1:
+        b_front = b[0:b_half_length+1]
+        b_back = b[b_half_length+1:]
+    else:
+        b_front = b[0:b_half_length]
+        b_back = b[b_half_length:]
+    return a_front + b_front + a_back + b_back
 
 
 # Provided simple test() function used in main() to print
